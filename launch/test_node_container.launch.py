@@ -39,7 +39,7 @@ def generate_launch_description():
     context = LaunchContext()
     camera_param_path = os.path.join(
         FindPackageShare("lucid_vision_driver").perform(context),
-        "param/test.param.yaml"
+        "param/camera_0.param.yaml"
     )
     with open(camera_param_path, "r") as f:
         camera_yaml_param = yaml.safe_load(f)["/**"]["ros__parameters"]
@@ -53,7 +53,7 @@ def generate_launch_description():
             ComposableNode(
                 package="lucid_vision_driver",
                 plugin="ArenaCameraNode",
-                name="arena_camera_node_right",
+                name="arena_camera_node_front",
                 parameters=[{"camera_name": camera_yaml_param['camera_name'],
                              "frame_id": camera_yaml_param['frame_id'],
                              "pixel_format": camera_yaml_param['pixel_format'],
